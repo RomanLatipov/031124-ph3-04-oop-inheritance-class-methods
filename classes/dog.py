@@ -1,18 +1,21 @@
-class Dog:
+from classes.mammal import Mammal
+
+class Dog(Mammal):
 
     def __init__(self, name, rested, is_good=True):
-        self.name = name
-        self.rested = rested
+        super().__init__(name=name, rested=rested)
         self.is_good = is_good
 
     def __repr__(self):
-        return f"Dog(name={self.name}, rested={self.rested}, is_good={self.is_good})"
+        return  f"Dog(name={self.name}, rested={self.rested}, is_good={self.is_good})"
 
     def make_sound(self):
-        return "generic mammal sound"
+        return "Bark"
 
     def sleep(self):
-        self.rested = True
+        super().sleep()
+        print("Sleeps in your bed")
 
     def run_around(self):
-        self.rested = False
+        super().run_around()
+        print("Chases the squirrel")
